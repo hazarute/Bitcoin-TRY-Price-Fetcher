@@ -12,6 +12,8 @@
 - `[X]` Bitcoin'in TRY fiyatını JSON verisinden çıkaran mantığı yaz.
 - `[X]` Fiyatı formatlayıp ("Bitcoin Fiyatı: 1,234,567.89 TRY") konsola yazdıran kodu ekle.
 - `[X]` Temel hata yönetimi ekle (örn: API isteği başarısız olursa veya beklenen veri gelmezse kullanıcıyı bilgilendir).
+- `[X]` `btc_price.py` içindeki kodu `def get_btc_price():` fonksiyonu içine al ve fiyatı döndürmesini sağla.
+- `[X]` `get_price(coin_id, currency)` şeklinde dinamik bir fonksiyon ekle.
 
 ## Bilinen Sorunlar (BUGS)
 - (Proje henüz başlamadığı için bilinen bir sorun bulunmamaktadır.)

@@ -17,7 +17,8 @@ Bu proje, CoinGecko'nun ücretsiz API'sine basit bir istek atarak kripto para pi
 
 ### Temel Özellikler
 - CoinGecko API'sine `requests` kütüphanesi ile bağlanır.
-- Bitcoin'in (BTC) Türk Lirası (TRY) karşılığındaki anlık fiyatını getirir.
+- `get_btc_price()` fonksiyonu ile Bitcoin'in (BTC) Türk Lirası (TRY) karşılığındaki anlık fiyatını getirir.
+- `get_price(coin_id, currency)` fonksiyonu ile herhangi bir kripto paranın (örn: "ethereum") istenilen para birimi (örn: "usd") karşılığındaki anlık fiyatını getirir.
 - Sonucu kullanıcı dostu bir formatta (örn: "Bitcoin Fiyatı: 1,234,567.89 TRY") konsola yazdırır.
 
 ### Kurulum ve Çalıştırma
@@ -31,13 +32,16 @@ Bu proje, CoinGecko'nun ücretsiz API'sine basit bir istek atarak kripto para pi
     ```bash
     python btc_price.py
     ```
+    Bu komut, hem Bitcoin/TRY fiyatını hem de Ethereum/USD fiyatını konsola yazdıracaktır.
 
 ### Kod Örneği
-Script, belirtilen API endpoint'ine bir GET isteği atar, gelen JSON yanıtını ayrıştırır ve içinden fiyat bilgisini çekerek ekrana yazdırır.
+Script, belirtilen API endpoint'ine bir GET isteği atar, gelen JSON yanıtını ayrıştırır ve içinden fiyat bilgisini çekerek ekrana yazdırır. Artık `get_btc_price()` ve `get_price(coin_id, currency)` fonksiyonları sayesinde farklı kripto paraların fiyatları kolayca sorgulanabilir ve başka projelerde modül olarak kullanılabilir.
 
 ### API Referansı
 - **Kullanılan API**: CoinGecko Simple Price API
-- **Endpoint**: `https://api.coingecko.com/api/v3/simple/price?ids=bitcoin&vs_currencies=try`
+- **Endpoint Örnekleri**:
+    - Bitcoin/TRY için: `https://api.coingecko.com/api/v3/simple/price?ids=bitcoin&vs_currencies=try`
+    - Dinamik sorgular için: `https://api.coingecko.com/api/v3/simple/price?ids={coin_id}&vs_currencies={currency}`
 
 ### Notlar ve Uyarılar
 - Bu proje eğitim amaçlıdır. Ticari kullanım için CoinGecko'nun API kullanım koşullarını kontrol ediniz.
@@ -57,7 +61,8 @@ This project is a basic automation script that prints the current price of Bitco
 
 ### Core Features
 - Connects to the CoinGecko API using the `requests` library.
-- Fetches the current price of Bitcoin (BTC) in Turkish Lira (TRY).
+- Fetches the current price of Bitcoin (BTC) in Turkish Lira (TRY) using the `get_btc_price()` function.
+- Fetches the current price of any cryptocurrency (e.g., "ethereum") in a desired currency (e.g., "usd") using the `get_price(coin_id, currency)` function.
 - Prints the result to the console in a user-friendly format (e.g., "Bitcoin Price: 1,234,567.89 TRY").
 
 ### Setup and Usage
@@ -71,13 +76,16 @@ This project is a basic automation script that prints the current price of Bitco
     ```bash
     python btc_price.py
     ```
+    This command will print both Bitcoin/TRY and Ethereum/USD prices to the console.
 
 ### Code Example
-The script sends a GET request to the specified API endpoint, parses the incoming JSON response, and extracts the price information to display it.
+The script sends a GET request to the specified API endpoint, parses the incoming JSON response, and extracts the price information to display it. Now, thanks to the `get_btc_price()` and `get_price(coin_id, currency)` functions, prices of different cryptocurrencies can be easily queried and used as a module in other projects.
 
 ### API Reference
 - **API Used**: CoinGecko Simple Price API
-- **Endpoint**: `https://api.coingecko.com/api/v3/simple/price?ids=bitcoin&vs_currencies=try`
+- **Endpoint Examples**:
+    - For Bitcoin/TRY: `https://api.coingecko.com/api/v3/simple/price?ids=bitcoin&vs_currencies=try`
+    - For dynamic queries: `https://api.coingecko.com/api/v3/simple/price?ids={coin_id}&vs_currencies={currency}`
 
 ### Notes & Disclaimers
 - This project is for educational purposes. For commercial use, please check CoinGecko's API terms of service.
